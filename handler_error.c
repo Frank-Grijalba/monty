@@ -1,6 +1,12 @@
 #include "monty.h"
-
-void handle_errors(char *opcode,int error, int numline)
+/**
+ * handle_errors - executes the errors
+ * @opcode: opcode generates error
+ * @error: the number of the error
+ * @numline: number of line that is executed
+ * Return: void function
+ */
+void handle_errors(char *opcode, int error, int numline)
 {
 	if (error == 1)
 	{	dprintf(STDERR_FILENO, "L%d: usage: push integer\n", numline);
@@ -16,24 +22,24 @@ void handle_errors(char *opcode,int error, int numline)
 		clean();
 		exit(EXIT_FAILURE);
 	}
-    if (error == 4)
+	if (error == 4)
 	{	dprintf(STDERR_FILENO,
 		"L%d: unknown instruction %s\n", numline, opcode);
-        clean();
-        exit(EXIT_FAILURE);
-    }
+		clean();
+		exit(EXIT_FAILURE);
+	}
 	if (error == 5)
 	{	dprintf(STDERR_FILENO, "L%u: can't %s, stack empty\n", numline, opcode);
 		clean();
 		exit(EXIT_FAILURE);
 	}
-    if (error == 6)
+	if (error == 6)
 	{	dprintf(STDERR_FILENO, "L%u: can't %s an empty stack\n", numline, opcode);
 		clean();
 		exit(EXIT_FAILURE);
 	}
 	if (error == 7)
-	{	dprintf(STDERR_FILENO, 	"L%u: can't %s, stack too short\n", numline, opcode);
+	{	dprintf(STDERR_FILENO, "L%u: can't %s, stack too short\n", numline, opcode);
 		clean();
 		exit(EXIT_FAILURE);
 	}

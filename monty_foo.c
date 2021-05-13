@@ -58,7 +58,8 @@ void _pint(stack_t **stack, unsigned int line_number)
 {
 	(void)line_number;
 
-	if (!stack || !*stack){
+	if (!stack || !*stack)
+	{
 		handle_errors("swap", ERROR_STACK_EMPTY, line_number);
 		clean();
 		exit(EXIT_FAILURE);
