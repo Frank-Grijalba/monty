@@ -63,6 +63,7 @@ void exec_foo(stack_t **stack, char *opcode, int ln);
 void clean(void);
 void reset(void);
 int is_int(char *s);
+void free_stack(stack_t *head);
 
 /*************** monty_foo **************/
 void _pall(stack_t **stack, unsigned int line_number);

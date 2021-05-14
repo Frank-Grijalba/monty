@@ -7,6 +7,7 @@ void clean(void)
 {
 	fclose(settings.file);
 	free(settings.line);
+	free_stack(settings.stack);
 }
 /**
  * is_int - check if the string is a number
@@ -29,4 +30,22 @@ int is_int(char *s)
 			return (0);
 	}
 	return (1);
+}
+
+/**
+ * free_stack - free the stack
+ * @head: head of the stack
+ * Return: void
+ */
+void free_stack(stack_t *head)
+{
+	stack_t *aux, *actual;
+
+	actual = head;
+	while (actual != NULL)
+	{
+		aux = actual->next;
+		free(actual);
+		actual = aux;
+	}
 }
