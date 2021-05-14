@@ -25,16 +25,12 @@ void _pall(stack_t **stack, unsigned int line_number)
  */
 void _pop(stack_t **stack, unsigned int line_number)
 {
-	stack_t *tmp = *stack;
-	(void)line_number;
-
 	if (!*stack)
 		handle_errors("pop", ERROR_POP, line_number);
 
-	if (!tmp)
-		handle_errors("pop", ERROR_POP, line_number);
+	stack_t *tmp = *stack;
 
-		*stack = tmp->next;
+	*stack = tmp->next;
 	if (tmp->next != NULL)
 		tmp->next->prev = NULL;
 
