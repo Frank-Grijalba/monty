@@ -29,8 +29,8 @@ void _pop(stack_t **stack, unsigned int line_number)
 		handle_errors("pop", ERROR_POP, line_number);
 
 	stack_t *tmp = *stack;
-
 	*stack = tmp->next;
+
 	if (tmp->next != NULL)
 		tmp->next->prev = NULL;
 
