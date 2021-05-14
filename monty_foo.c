@@ -29,15 +29,16 @@ void _pop(stack_t **stack, unsigned int line_number)
 	(void)line_number;
 
 	if (!*stack)
-		handle_errors("pop", ERROR_STACK_EMPTY, line_number);
-	if (!tmp)
-		handle_errors("pop", ERROR_STACK_EMPTY, line_number);
-	*stack = tmp->next;
+		handle_errors("pop", ERROR_POP, line_number);
+	
+	if (!tmp){
+		handle_errors("pop", ERROR_POP, line_number);
+	}
+		*stack = tmp->next;
 	if (tmp->next != NULL)
 		tmp->next->prev = NULL;
 
 	free(tmp);
-	*stack = NULL;
 }
 /**
  * _nop - Do nothing...
@@ -61,7 +62,7 @@ void _pint(stack_t **stack, unsigned int line_number)
 
 	if (!stack || !*stack)
 	{
-		handle_errors("swap", ERROR_STACK_EMPTY, line_number);
+		handle_errors("pint", ERROR_STACK_EMPTY, line_number);
 		clean();
 		exit(EXIT_FAILURE);
 	}
@@ -76,8 +77,7 @@ void _pint(stack_t **stack, unsigned int line_number)
 void _swap(stack_t **stack, unsigned int line_number)
 {
 	int temp;
-	(void)line_number;
-
+	
 	if (!stack || !*stack || !(*stack)->next)
 		handle_errors("swap", ERROR_STACK_SHORT, line_number);
 

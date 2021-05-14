@@ -14,3 +14,5 @@ valgrind: main
 	./monty bytecodes/09.m
 4: main
 	./monty bytecodes/12.m
+prueba: main
+	./monty bytecodes/prueba.m
