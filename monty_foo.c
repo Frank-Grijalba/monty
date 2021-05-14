@@ -30,10 +30,10 @@ void _pop(stack_t **stack, unsigned int line_number)
 
 	if (!*stack)
 		handle_errors("pop", ERROR_POP, line_number);
-	
-	if (!tmp){
+
+	if (!tmp)
 		handle_errors("pop", ERROR_POP, line_number);
-	}
+
 		*stack = tmp->next;
 	if (tmp->next != NULL)
 		tmp->next->prev = NULL;
@@ -77,7 +77,7 @@ void _pint(stack_t **stack, unsigned int line_number)
 void _swap(stack_t **stack, unsigned int line_number)
 {
 	int temp;
-	
+
 	if (!stack || !*stack || !(*stack)->next)
 		handle_errors("swap", ERROR_STACK_SHORT, line_number);
 
